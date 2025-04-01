@@ -1,5 +1,6 @@
-package com.otavioweb.cadastroDeNinja;
+package com.otavioweb.cadastroDeNinja.Ninjas;
 
+import com.otavioweb.cadastroDeNinja.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    // Muitos Ninjas vão ter uma única missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 
     public NinjaModel(){
 
